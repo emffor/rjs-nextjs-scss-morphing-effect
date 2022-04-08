@@ -1,0 +1,46 @@
+.languages {
+
+    $speed: 10s;
+    $languagesCount: 7;
+
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    animation: languages $speed ease-in-out infinite;
+    
+    @for $i from 0 to $languagesCount {
+        &:nth-child(#{$i + 1}) {
+            animation-delay: ($speed / ($languagesCount + 1) * $i) - $speed;
+        }
+    }
+
+    @keyframes languages {
+        0%, 5%, 100% { filter: blur(0px); opacity: 1; }
+        20%, 80% { filter: blur(1em); opacity: 0; }
+    }
+
+    *, *::before, *::after {
+        padding: 0;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+}
+
+.morphing {
+    position: relative;
+
+    font-size: 130px;
+    font-family: "Roboto", sans-serif;
+
+    color: #F4F3EE;
+
+    min-height: 100vh;
+    filter: contrast(25) bluer(1px);
+}
+
+
+
+
+
+
+
